@@ -45,6 +45,13 @@
             formatting = treefmtModule.config.build.check self;
           };
 
+          packages = rec {
+            default = zai-usage;
+            zai-usage = naersk-lib.buildPackage {
+              src = ./.;
+            };
+          };
+
           devShells = {
             default = pkgs.mkShell {
               packages = with pkgs; [
